@@ -8,12 +8,12 @@ class RecentQrModel {
 
   static List<RecentQrModel> websitesList = [
     RecentQrModel(
-      text: 'www.github.com/fz3hra',
+      text: 'www.github.com/HanySameh',
       date: '29.01.23',
       time: '03:09 PM',
     ),
     RecentQrModel(
-      text: 'https://medium.com/@fz3hra',
+      text: 'https://medium.com',
       date: '29.01.23',
       time: '02:10 PM',
     ),
@@ -21,12 +21,12 @@ class RecentQrModel {
 
   static List<RecentQrModel> emailsList = [
     RecentQrModel(
-      text: 'fz3hra@gmail.com',
+      text: 'hanysameh506@gmail.com',
       date: '29.01.23',
       time: '03:09 PM',
     ),
     RecentQrModel(
-      text: 'mujorefaatimah@gmail.com',
+      text: 'han798348@gmail.com',
       date: '29.01.23',
       time: '02:10 PM',
     ),

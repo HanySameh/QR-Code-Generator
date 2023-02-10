@@ -97,6 +97,7 @@ class GenerateQrWidget extends StatelessWidget {
                   TextField(
                     controller: controller,
                     decoration: InputDecoration(
+                      hintText: 'https://Test.com',
                       filled: true,
                       fillColor: const Color.fromARGB(255, 241, 239, 239),
                       border: OutlineInputBorder(

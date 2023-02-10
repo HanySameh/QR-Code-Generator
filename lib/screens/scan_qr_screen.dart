@@ -1,18 +1,19 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class QrListScreen extends StatefulWidget {
-  const QrListScreen({super.key});
+class ScanQrScreen extends StatefulWidget {
+  const ScanQrScreen({super.key});
 
   @override
-  State<QrListScreen> createState() => _QrListScreenState();
+  State<ScanQrScreen> createState() => _ScanQrScreenState();
 }
 
-class _QrListScreenState extends State<QrListScreen> {
+class _ScanQrScreenState extends State<ScanQrScreen> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? controller;
   Barcode? result;
@@ -40,12 +41,12 @@ class _QrListScreenState extends State<QrListScreen> {
         centerTitle: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text(
-          "MrQR",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        // title: const Text(
+        //   "MrQR",
+        //   style: TextStyle(
+        //     color: Colors.black,
+        //   ),
+        // ),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(
@@ -69,21 +70,28 @@ class _QrListScreenState extends State<QrListScreen> {
                 fontSize: 16,
               ),
             ),
-            Expanded(child: _buildQrView(context)),
-            Visibility(
-              visible: result != null,
-              child: Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
-                  child: SelectableText(
-                    result.toString(),
-                    style: const TextStyle(
-                      fontFamily: 'poppins_bold',
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
+            const Gap(15),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: _buildQrView(context),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
+                child: (result != null)
+                    ? SelectableText(
+                        'Barcode Type: ${describeEnum(result!.format)}\n   Data: ${result!.code}',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'poppins_regular',
+                          fontSize: 16,
+                          color: Color(0xFF6565FF),
+                        ),
+                      )
+                    : const Text('Scan a code'),
               ),
             ),
           ],

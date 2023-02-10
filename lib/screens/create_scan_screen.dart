@@ -16,14 +16,17 @@ class CreateScanScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "MrQR",
+          "QR Generator",
           style: TextStyle(
             color: Colors.black,
           ),
         ),
         actions: [
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () => Navigator.pushNamed(
+              context,
+              Routes.qrScanScreen,
+            ),
             style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
               backgroundColor: Colors.white,

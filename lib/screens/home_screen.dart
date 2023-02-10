@@ -14,7 +14,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = const [
     CreateScanScreen(),
-    QrListScreen(),
     RecentScreen(),
     SettingScreen(),
   ];
@@ -62,10 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: Icon(EvaIcons.edit2Outline),
                   label: "Create QR",
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.qr_code_scanner_outlined),
-                  label: "Scan QR",
-                ),
+                // BottomNavigationBarItem(
+                //   icon: Icon(Icons.qr_code_scanner_outlined),
+                //   label: "Scan QR",
+                // ),
                 BottomNavigationBarItem(
                   icon: Icon(EvaIcons.clockOutline),
                   label: "Recent",

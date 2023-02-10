@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         Routes.homeScreen: (context) => const HomeScreen(),
         Routes.createQrWebsite: (context) => const CreateWebQrScreen(),
         Routes.recentQrScreen: (context) => const RecentQrScreen(),
+        Routes.qrScanScreen: (context) => const ScanQrScreen(),
       },
     );
   }

@@ -4,7 +4,6 @@ import 'package:gap/gap.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../models/recent_qr_models.dart';
-import 'qr_dialog.dart';
 
 class RecentWidget extends StatelessWidget {
   final RecentQrModel recent;
@@ -21,7 +20,66 @@ class RecentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-         onTap: () => showDialog(
+      onTap: () => _dialog(context),
+      child: Container(
+        margin: const EdgeInsets.only(
+          bottom: 16,
+        ),
+        padding: const EdgeInsets.all(16),
+        height: 100,
+        decoration: BoxDecoration(
+          color: Colors.white54,
+          borderRadius: BorderRadius.circular(
+            30,
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              color: color,
+            ),
+            const Gap(16),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  recent.text,
+                  style: const TextStyle(
+                    fontFamily: 'poppins_semi_bold',
+                    fontSize: 14,
+                  ),
+                ),
+                const Gap(4),
+                Row(
+                  children: [
+                    Text(
+                      recent.date,
+                      style: const TextStyle(
+                        fontFamily: 'poppins_regular',
+                        fontSize: 12,
+                      ),
+                    ),
+                    const Gap(16),
+                    Text(
+                      recent.time,
+                      style: const TextStyle(
+                        fontFamily: 'poppins_regular',
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  _dialog(BuildContext context) => showDialog(
         context: context,
         builder: (context) {
           return Center(
@@ -140,62 +198,5 @@ class RecentWidget extends StatelessWidget {
             ),
           );
         },
-      ),
-      child: Container(
-        margin: const EdgeInsets.only(
-          bottom: 16,
-        ),
-        padding: const EdgeInsets.all(16),
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.white54,
-          borderRadius: BorderRadius.circular(
-            30,
-          ),
-        ),
-        child: Row(
-          children: [
-            Icon(
-              icon,
-              color: color,
-            ),
-            const Gap(16),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  recent.text,
-                  style: const TextStyle(
-                    fontFamily: 'poppins_semi_bold',
-                    fontSize: 14,
-                  ),
-                ),
-                const Gap(4),
-                Row(
-                  children: [
-                    Text(
-                      recent.date,
-                      style: const TextStyle(
-                        fontFamily: 'poppins_regular',
-                        fontSize: 12,
-                      ),
-                    ),
-                    const Gap(16),
-                    Text(
-                      recent.time,
-                      style: const TextStyle(
-                        fontFamily: 'poppins_regular',
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+      );
 }
