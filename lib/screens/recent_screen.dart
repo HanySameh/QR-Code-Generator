@@ -17,7 +17,7 @@ class RecentScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "MrQR",
+          "QR Generator",
           style: TextStyle(
             color: Colors.black,
           ),
